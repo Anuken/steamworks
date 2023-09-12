@@ -92,6 +92,10 @@
   <li><a class="reference" href="#checkFileSignature%2CISteamUtils%2Ccstring" title="checkFileSignature(self: ISteamUtils; szFileName: cstring): SteamAPICall">checkFileSignature(self: ISteamUtils; szFileName: cstring): SteamAPICall</a></li>
 
 </ul>
+<ul class="simple nested-toc-section">clearAchievement
+  <li><a class="reference" href="#clearAchievement%2CISteamUserStats%2Ccstring" title="clearAchievement(self: ISteamUserStats; name: cstring): bool">clearAchievement(self: ISteamUserStats; name: cstring): bool</a></li>
+
+</ul>
 <ul class="simple nested-toc-section">dismissFloatingGamepadTextInput
   <li><a class="reference" href="#dismissFloatingGamepadTextInput%2CISteamUtils" title="dismissFloatingGamepadTextInput(self: ISteamUtils): bool">dismissFloatingGamepadTextInput(self: ISteamUtils): bool</a></li>
 
@@ -102,6 +106,10 @@
            pchOutFilteredText: cstring; nByteSizeOutFilteredText: uint32): cint">filterText(self: ISteamUtils; eContext: TextFilteringContext;
            sourceSteamID: SteamId; pchInputMessage: cstring;
            pchOutFilteredText: cstring; nByteSizeOutFilteredText: uint32): cint</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">getAchievement
+  <li><a class="reference" href="#getAchievement%2CISteamUserStats%2Ccstring%2Cptr.bool" title="getAchievement(self: ISteamUserStats; name: cstring; achieved: ptr bool): bool">getAchievement(self: ISteamUserStats; name: cstring; achieved: ptr bool): bool</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">getAPICallFailureReason
@@ -215,6 +223,11 @@
   <li><a class="reference" href="#getServerRealTime%2CISteamUtils" title="getServerRealTime(self: ISteamUtils): uint32">getServerRealTime(self: ISteamUtils): uint32</a></li>
 
 </ul>
+<ul class="simple nested-toc-section">getStat
+  <li><a class="reference" href="#getStat%2CISteamUserStats%2Ccstring%2Cptr.float32" title="getStat(self: ISteamUserStats; name: cstring; data: ptr float32): bool">getStat(self: ISteamUserStats; name: cstring; data: ptr float32): bool</a></li>
+<li><a class="reference" href="#getStat%2CISteamUserStats%2Ccstring%2Cptr.int32" title="getStat(self: ISteamUserStats; name: cstring; data: ptr int32): bool">getStat(self: ISteamUserStats; name: cstring; data: ptr int32): bool</a></li>
+
+</ul>
 <ul class="simple nested-toc-section">getSteamID
   <li><a class="reference" href="#getSteamID%2CISteamUser" title="getSteamID(self: ISteamUser): SteamId">getSteamID(self: ISteamUser): SteamId</a></li>
 
@@ -285,12 +298,20 @@
                      msgToSend: cstring)</a></li>
 
 </ul>
+<ul class="simple nested-toc-section">requestCurrentStats
+  <li><a class="reference" href="#requestCurrentStats%2CISteamUserStats" title="requestCurrentStats(self: ISteamUserStats): bool">requestCurrentStats(self: ISteamUserStats): bool</a></li>
+
+</ul>
 <ul class="simple nested-toc-section">RestartAppIfNecessary
   <li><a class="reference" href="#RestartAppIfNecessary%2CAppId" title="RestartAppIfNecessary(ownAppID: AppId): bool">RestartAppIfNecessary(ownAppID: AppId): bool</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">RunCallbacks
   <li><a class="reference" href="#RunCallbacks" title="RunCallbacks()">RunCallbacks()</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">setAchievement
+  <li><a class="reference" href="#setAchievement%2CISteamUserStats%2Ccstring" title="setAchievement(self: ISteamUserStats; name: cstring): bool">setAchievement(self: ISteamUserStats; name: cstring): bool</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">setGameLauncherMode
@@ -307,6 +328,11 @@
   <li><a class="reference" href="#setOverlayNotificationPosition%2CISteamUtils%2CNotificationPosition" title="setOverlayNotificationPosition(self: ISteamUtils;
                                eNotificationPosition: NotificationPosition)">setOverlayNotificationPosition(self: ISteamUtils;
                                eNotificationPosition: NotificationPosition)</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">SetStat
+  <li><a class="reference" href="#SetStat%2CISteamUserStats%2Ccstring%2Cfloat32" title="SetStat(self: ISteamUserStats; name: cstring; data: float32): bool">SetStat(self: ISteamUserStats; name: cstring; data: float32): bool</a></li>
+<li><a class="reference" href="#SetStat%2CISteamUserStats%2Ccstring%2Cint32" title="SetStat(self: ISteamUserStats; name: cstring; data: int32): bool">SetStat(self: ISteamUserStats; name: cstring; data: int32): bool</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">setVRHeadsetStreamingEnabled
@@ -361,6 +387,10 @@
 </ul>
 <ul class="simple nested-toc-section">SteamUtils
   <li><a class="reference" href="#SteamUtils" title="SteamUtils(): ISteamUtils">SteamUtils(): ISteamUtils</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">storeStats
+  <li><a class="reference" href="#storeStats%2CISteamUserStats" title="storeStats(self: ISteamUserStats): bool">storeStats(self: ISteamUserStats): bool</a></li>
 
 </ul>
 
@@ -520,8 +550,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L146" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L146" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L155" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L155" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -535,8 +565,23 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L147" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L147" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L156" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L156" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
+<div id="clearAchievement-procs-all">
+  <div id="clearAchievement,ISteamUserStats,cstring">
+  <dt><pre><span class="Keyword">proc</span> <a href="#clearAchievement%2CISteamUserStats%2Ccstring"><span class="Identifier">clearAchievement</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUserStats</span><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;SteamAPI_ISteamUserStats_ClearAchievement&quot;</span><span class="Other">,</span> <span class="Identifier">stdcall</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L128" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L128" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -550,8 +595,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L165" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L165" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L174" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L174" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -567,8 +612,23 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L160" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L160" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L169" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L169" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
+<div id="getAchievement-procs-all">
+  <div id="getAchievement,ISteamUserStats,cstring,ptr.bool">
+  <dt><pre><span class="Keyword">proc</span> <a href="#getAchievement%2CISteamUserStats%2Ccstring%2Cptr.bool"><span class="Identifier">getAchievement</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUserStats</span><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">;</span> <span class="Identifier">achieved</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">bool</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;SteamAPI_ISteamUserStats_GetAchievement&quot;</span><span class="Other">,</span> <span class="Identifier">stdcall</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L126" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L126" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -582,8 +642,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L141" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L141" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L150" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L150" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -599,8 +659,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L142" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L142" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L151" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L151" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -629,8 +689,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L138" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L138" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L147" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L147" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -643,8 +703,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L174" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L174" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L183" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L183" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -673,8 +733,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L132" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L132" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L141" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L141" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -688,8 +748,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L137" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L137" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L146" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L146" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -702,8 +762,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L178" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L178" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L187" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L187" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -745,8 +805,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L150" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L150" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L159" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L159" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -760,8 +820,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L149" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L149" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L158" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L158" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -775,8 +835,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L124" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L124" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L133" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L133" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -790,8 +850,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L123" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L123" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L132" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L132" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -805,8 +865,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L125" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L125" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L134" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L134" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -821,8 +881,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L136" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L136" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L145" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L145" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -837,8 +897,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L135" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L135" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L144" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L144" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -852,8 +912,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L143" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L143" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L152" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L152" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -867,8 +927,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L134" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L134" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L143" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L143" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -883,8 +943,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L161" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L161" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L170" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L170" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -913,8 +973,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L122" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L122" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L131" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L131" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -928,8 +988,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L130" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L130" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L139" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L139" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -943,8 +1003,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L131" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L131" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L140" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L140" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -958,8 +1018,35 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L133" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L133" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L142" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L142" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
+<div id="getStat-procs-all">
+  <div id="getStat,ISteamUserStats,cstring,ptr.float32">
+  <dt><pre><span class="Keyword">proc</span> <a href="#getStat%2CISteamUserStats%2Ccstring%2Cptr.float32"><span class="Identifier">getStat</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUserStats</span><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">float32</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;SteamAPI_ISteamUserStats_GetStat&quot;</span><span class="Other">,</span> <span class="Identifier">stdcall</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L123" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L123" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+<div id="getStat,ISteamUserStats,cstring,ptr.int32">
+  <dt><pre><span class="Keyword">proc</span> <a href="#getStat%2CISteamUserStats%2Ccstring%2Cptr.int32"><span class="Identifier">getStat</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUserStats</span><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">int32</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;SteamAPI_ISteamUserStats_GetStat&quot;</span><span class="Other">,</span> <span class="Identifier">stdcall</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L122" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L122" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -988,8 +1075,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L151" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L151" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L160" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L160" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1017,8 +1104,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L159" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L159" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L168" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L168" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1033,8 +1120,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L127" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L127" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L136" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L136" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1049,8 +1136,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L140" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L140" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L149" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L149" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1094,8 +1181,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L145" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L145" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L154" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L154" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1109,8 +1196,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L158" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L158" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L167" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L167" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1124,8 +1211,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L154" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L154" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L163" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L163" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1139,8 +1226,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L152" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L152" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L161" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L161" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1154,8 +1241,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L162" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L162" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L171" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L171" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1184,8 +1271,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L156" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L156" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L165" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L165" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1200,8 +1287,23 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L126" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L126" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L135" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L135" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
+<div id="requestCurrentStats-procs-all">
+  <div id="requestCurrentStats,ISteamUserStats">
+  <dt><pre><span class="Keyword">proc</span> <a href="#requestCurrentStats%2CISteamUserStats"><span class="Identifier">requestCurrentStats</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUserStats</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;SteamAPI_ISteamUserStats_RequestCurrentStats&quot;</span><span class="Other">,</span> <span class="Identifier">stdcall</span><span class="Other">,</span>
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L120" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L120" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1236,6 +1338,21 @@
 </div>
 
 </div>
+<div id="setAchievement-procs-all">
+  <div id="setAchievement,ISteamUserStats,cstring">
+  <dt><pre><span class="Keyword">proc</span> <a href="#setAchievement%2CISteamUserStats%2Ccstring"><span class="Identifier">setAchievement</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUserStats</span><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;SteamAPI_ISteamUserStats_SetAchievement&quot;</span><span class="Other">,</span> <span class="Identifier">stdcall</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L127" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L127" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
 <div id="setGameLauncherMode-procs-all">
   <div id="setGameLauncherMode,ISteamUtils,bool">
   <dt><pre><span class="Keyword">proc</span> <a href="#setGameLauncherMode%2CISteamUtils%2Cbool"><span class="Identifier">setGameLauncherMode</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUtils</span><span class="Other">;</span> <span class="Identifier">bLauncherMode</span><span class="Other">:</span> <span class="Identifier">bool</span><span class="Other">)</span> {.
@@ -1244,8 +1361,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L164" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L164" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L173" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L173" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1260,8 +1377,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L153" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L153" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L162" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L162" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1276,8 +1393,35 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L139" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L139" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L148" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L148" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
+<div id="SetStat-procs-all">
+  <div id="SetStat,ISteamUserStats,cstring,float32">
+  <dt><pre><span class="Keyword">proc</span> <a href="#SetStat%2CISteamUserStats%2Ccstring%2Cfloat32"><span class="Identifier">SetStat</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUserStats</span><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">float32</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;SteamAPI_ISteamUserStats_SetStat&quot;</span><span class="Other">,</span> <span class="Identifier">stdcall</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L125" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L125" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+<div id="SetStat,ISteamUserStats,cstring,int32">
+  <dt><pre><span class="Keyword">proc</span> <a href="#SetStat%2CISteamUserStats%2Ccstring%2Cint32"><span class="Identifier">SetStat</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUserStats</span><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">int32</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;SteamAPI_ISteamUserStats_SetStat&quot;</span><span class="Other">,</span> <span class="Identifier">stdcall</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L124" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L124" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1291,8 +1435,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L157" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L157" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L166" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L166" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1307,8 +1451,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L144" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L144" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L153" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L153" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1326,8 +1470,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L163" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L163" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L172" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L172" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1344,8 +1488,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L148" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L148" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L157" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L157" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1359,8 +1503,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L155" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L155" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L164" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L164" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1387,8 +1531,8 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L121" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L121" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L130" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L130" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1430,8 +1574,23 @@
   <dd>
     
     
-    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L129" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L129" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L138" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L138" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
+<div id="storeStats-procs-all">
+  <div id="storeStats,ISteamUserStats">
+  <dt><pre><span class="Keyword">proc</span> <a href="#storeStats%2CISteamUserStats"><span class="Identifier">storeStats</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">ISteamUserStats</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;SteamAPI_ISteamUserStats_StoreStats&quot;</span><span class="Other">,</span> <span class="Identifier">stdcall</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/Anuken/steamworks/tree/master/src/steamworks.nim#L121" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Anuken/steamworks/edit/devel/src/steamworks.nim#L121" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -1447,7 +1606,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-12 20:06:44 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-12 20:29:50 UTC</small>
       </div>
     </div>
   </div>

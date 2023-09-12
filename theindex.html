@@ -30,6 +30,10 @@
 <li><a class="reference external"
           data-doc-search-tag="steamworks: proc checkFileSignature(self: ISteamUtils; szFileName: cstring): SteamAPICall" href="steamworks.html#checkFileSignature%2CISteamUtils%2Ccstring">steamworks: proc checkFileSignature(self: ISteamUtils; szFileName: cstring): SteamAPICall</a></li>
           </ul></dd>
+<dt><a name="clearAchievement" href="#clearAchievement"><span>clearAchievement:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="steamworks: proc clearAchievement(self: ISteamUserStats; name: cstring): bool" href="steamworks.html#clearAchievement%2CISteamUserStats%2Ccstring">steamworks: proc clearAchievement(self: ISteamUserStats; name: cstring): bool</a></li>
+          </ul></dd>
 <dt><a name="dismissFloatingGamepadTextInput" href="#dismissFloatingGamepadTextInput"><span>dismissFloatingGamepadTextInput:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="steamworks: proc dismissFloatingGamepadTextInput(self: ISteamUtils): bool" href="steamworks.html#dismissFloatingGamepadTextInput%2CISteamUtils">steamworks: proc dismissFloatingGamepadTextInput(self: ISteamUtils): bool</a></li>
@@ -105,6 +109,10 @@
 <dt><a name="GamepadTextInputMode" href="#GamepadTextInputMode"><span>GamepadTextInputMode:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="steamworks: enum GamepadTextInputMode" href="steamworks.html#GamepadTextInputMode">steamworks: enum GamepadTextInputMode</a></li>
+          </ul></dd>
+<dt><a name="getAchievement" href="#getAchievement"><span>getAchievement:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="steamworks: proc getAchievement(self: ISteamUserStats; name: cstring; achieved: ptr bool): bool" href="steamworks.html#getAchievement%2CISteamUserStats%2Ccstring%2Cptr.bool">steamworks: proc getAchievement(self: ISteamUserStats; name: cstring; achieved: ptr bool): bool</a></li>
           </ul></dd>
 <dt><a name="getAPICallFailureReason" href="#getAPICallFailureReason"><span>getAPICallFailureReason:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -218,6 +226,12 @@
 <li><a class="reference external"
           data-doc-search-tag="steamworks: proc getServerRealTime(self: ISteamUtils): uint32" href="steamworks.html#getServerRealTime%2CISteamUtils">steamworks: proc getServerRealTime(self: ISteamUtils): uint32</a></li>
           </ul></dd>
+<dt><a name="getStat" href="#getStat"><span>getStat:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="steamworks: proc getStat(self: ISteamUserStats; name: cstring; data: ptr float32): bool" href="steamworks.html#getStat%2CISteamUserStats%2Ccstring%2Cptr.float32">steamworks: proc getStat(self: ISteamUserStats; name: cstring; data: ptr float32): bool</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="steamworks: proc getStat(self: ISteamUserStats; name: cstring; data: ptr int32): bool" href="steamworks.html#getStat%2CISteamUserStats%2Ccstring%2Cptr.int32">steamworks: proc getStat(self: ISteamUserStats; name: cstring; data: ptr int32): bool</a></li>
+          </ul></dd>
 <dt><a name="getSteamID" href="#getSteamID"><span>getSteamID:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="steamworks: proc getSteamID(self: ISteamUser): SteamId" href="steamworks.html#getSteamID%2CISteamUser">steamworks: proc getSteamID(self: ISteamUser): SteamId</a></li>
@@ -296,6 +310,10 @@
                      msgToSend: cstring)" href="steamworks.html#replyToFriendMessage%2CISteamFriends%2CSteamId%2Ccstring">steamworks: proc replyToFriendMessage(self: ISteamFriends; steamIDFriend: SteamId;
                      msgToSend: cstring)</a></li>
           </ul></dd>
+<dt><a name="requestCurrentStats" href="#requestCurrentStats"><span>requestCurrentStats:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="steamworks: proc requestCurrentStats(self: ISteamUserStats): bool" href="steamworks.html#requestCurrentStats%2CISteamUserStats">steamworks: proc requestCurrentStats(self: ISteamUserStats): bool</a></li>
+          </ul></dd>
 <dt><a name="RestartAppIfNecessary" href="#RestartAppIfNecessary"><span>RestartAppIfNecessary:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="steamworks: proc RestartAppIfNecessary(ownAppID: AppId): bool" href="steamworks.html#RestartAppIfNecessary%2CAppId">steamworks: proc RestartAppIfNecessary(ownAppID: AppId): bool</a></li>
@@ -303,6 +321,10 @@
 <dt><a name="RunCallbacks" href="#RunCallbacks"><span>RunCallbacks:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="steamworks: proc RunCallbacks()" href="steamworks.html#RunCallbacks">steamworks: proc RunCallbacks()</a></li>
+          </ul></dd>
+<dt><a name="setAchievement" href="#setAchievement"><span>setAchievement:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="steamworks: proc setAchievement(self: ISteamUserStats; name: cstring): bool" href="steamworks.html#setAchievement%2CISteamUserStats%2Ccstring">steamworks: proc setAchievement(self: ISteamUserStats; name: cstring): bool</a></li>
           </ul></dd>
 <dt><a name="setGameLauncherMode" href="#setGameLauncherMode"><span>setGameLauncherMode:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -319,6 +341,12 @@
           data-doc-search-tag="steamworks: proc setOverlayNotificationPosition(self: ISteamUtils;
                                eNotificationPosition: NotificationPosition)" href="steamworks.html#setOverlayNotificationPosition%2CISteamUtils%2CNotificationPosition">steamworks: proc setOverlayNotificationPosition(self: ISteamUtils;
                                eNotificationPosition: NotificationPosition)</a></li>
+          </ul></dd>
+<dt><a name="SetStat" href="#SetStat"><span>SetStat:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="steamworks: proc SetStat(self: ISteamUserStats; name: cstring; data: float32): bool" href="steamworks.html#SetStat%2CISteamUserStats%2Ccstring%2Cfloat32">steamworks: proc SetStat(self: ISteamUserStats; name: cstring; data: float32): bool</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="steamworks: proc SetStat(self: ISteamUserStats; name: cstring; data: int32): bool" href="steamworks.html#SetStat%2CISteamUserStats%2Ccstring%2Cint32">steamworks: proc SetStat(self: ISteamUserStats; name: cstring; data: int32): bool</a></li>
           </ul></dd>
 <dt><a name="setVRHeadsetStreamingEnabled" href="#setVRHeadsetStreamingEnabled"><span>setVRHeadsetStreamingEnabled:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -390,6 +418,10 @@
 <li><a class="reference external"
           data-doc-search-tag="steamworks: proc SteamUtils(): ISteamUtils" href="steamworks.html#SteamUtils">steamworks: proc SteamUtils(): ISteamUtils</a></li>
           </ul></dd>
+<dt><a name="storeStats" href="#storeStats"><span>storeStats:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="steamworks: proc storeStats(self: ISteamUserStats): bool" href="steamworks.html#storeStats%2CISteamUserStats">steamworks: proc storeStats(self: ISteamUserStats): bool</a></li>
+          </ul></dd>
 <dt><a name="TextFilteringContext" href="#TextFilteringContext"><span>TextFilteringContext:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="steamworks: enum TextFilteringContext" href="steamworks.html#TextFilteringContext">steamworks: enum TextFilteringContext</a></li>
@@ -398,7 +430,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-12 20:06:44 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-12 20:29:50 UTC</small>
       </div>
     </div>
   </div>

@@ -37,50 +37,61 @@ nim	SteamUser	steamworks.html#SteamUser	proc SteamUser(): ISteamUser		115
 nim	getSteamID	steamworks.html#getSteamID,ISteamUser	proc getSteamID(self: ISteamUser): SteamId		116
 nim	SteamUserStats	steamworks.html#SteamUserStats	proc SteamUserStats(): ISteamUserStats		118
 nim	getNumberOfCurrentPlayers	steamworks.html#getNumberOfCurrentPlayers,ISteamUserStats	proc getNumberOfCurrentPlayers(self: ISteamUserStats): SteamAPICall		119
-nim	SteamFriends	steamworks.html#SteamFriends	proc SteamFriends(): ISteamFriends		121
-nim	getPersonaName	steamworks.html#getPersonaName,ISteamFriends	proc getPersonaName(self: ISteamFriends): cstring		122
-nim	getFriendCount	steamworks.html#getFriendCount,ISteamFriends,cint	proc getFriendCount(self: ISteamFriends; iFriendFlags: cint): cint		123
-nim	getFriendByIndex	steamworks.html#getFriendByIndex,ISteamFriends,cint,cint	proc getFriendByIndex(self: ISteamFriends; iFriend: cint; iFriendFlags: cint): SteamId		124
-nim	getFriendPersonaName	steamworks.html#getFriendPersonaName,ISteamFriends,SteamId	proc getFriendPersonaName(self: ISteamFriends; steamIDFriend: SteamId): cstring		125
-nim	replyToFriendMessage	steamworks.html#replyToFriendMessage,ISteamFriends,SteamId,cstring	proc replyToFriendMessage(self: ISteamFriends; steamIDFriend: SteamId;\n                     msgToSend: cstring)		126
-nim	inviteUserToGame	steamworks.html#inviteUserToGame,ISteamFriends,SteamId,cstring	proc inviteUserToGame(self: ISteamFriends; steamIDFriend: SteamId;\n                 connectString: cstring): bool		127
-nim	SteamUtils	steamworks.html#SteamUtils	proc SteamUtils(): ISteamUtils		129
-nim	getSecondsSinceAppActive	steamworks.html#getSecondsSinceAppActive,ISteamUtils	proc getSecondsSinceAppActive(self: ISteamUtils): uint32		130
-nim	getSecondsSinceComputerActive	steamworks.html#getSecondsSinceComputerActive,ISteamUtils	proc getSecondsSinceComputerActive(self: ISteamUtils): uint32		131
-nim	getConnectedUniverse	steamworks.html#getConnectedUniverse,ISteamUtils	proc getConnectedUniverse(self: ISteamUtils): Universe		132
-nim	getServerRealTime	steamworks.html#getServerRealTime,ISteamUtils	proc getServerRealTime(self: ISteamUtils): uint32		133
-nim	getIPCountry	steamworks.html#getIPCountry,ISteamUtils	proc getIPCountry(self: ISteamUtils): cstring		134
-nim	getImageSize	steamworks.html#getImageSize,ISteamUtils,cint,ptr.uint32,ptr.uint32	proc getImageSize(self: ISteamUtils; iImage: cint; pnWidth: ptr uint32;\n             pnHeight: ptr uint32): bool		135
-nim	getImageRGBA	steamworks.html#getImageRGBA,ISteamUtils,cint,ptr.uint8,cint	proc getImageRGBA(self: ISteamUtils; iImage: cint; pubDest: ptr uint8;\n             nDestBufferSize: cint): bool		136
-nim	getCurrentBatteryPower	steamworks.html#getCurrentBatteryPower,ISteamUtils	proc getCurrentBatteryPower(self: ISteamUtils): uint8		137
-nim	getAppID	steamworks.html#getAppID,ISteamUtils	proc getAppID(self: ISteamUtils): uint32		138
-nim	setOverlayNotificationPosition	steamworks.html#setOverlayNotificationPosition,ISteamUtils,NotificationPosition	proc setOverlayNotificationPosition(self: ISteamUtils;\n                               eNotificationPosition: NotificationPosition)		139
-nim	isAPICallCompleted	steamworks.html#isAPICallCompleted,ISteamUtils,SteamAPICall,ptr.bool	proc isAPICallCompleted(self: ISteamUtils; hSteamAPICall: SteamAPICall;\n                   pbFailed: ptr bool): bool		140
-nim	getAPICallFailureReason	steamworks.html#getAPICallFailureReason,ISteamUtils,SteamAPICall	proc getAPICallFailureReason(self: ISteamUtils; hSteamAPICall: SteamAPICall): SteamAPICallFailure		141
-nim	getAPICallResult	steamworks.html#getAPICallResult,ISteamUtils,SteamAPICall,pointer,cint,cint,ptr.bool	proc getAPICallResult(self: ISteamUtils; hSteamAPICall: SteamAPICall;\n                 pCallback: pointer; cubCallback: cint; iCallbackExpected: cint;\n                 pbFailed: ptr bool): bool		142
-nim	getIPCCallCount	steamworks.html#getIPCCallCount,ISteamUtils	proc getIPCCallCount(self: ISteamUtils): uint32		143
-nim	setWarningMessageHook	steamworks.html#setWarningMessageHook,ISteamUtils,SteamAPIWarningMessageHook	proc setWarningMessageHook(self: ISteamUtils; pFunction: SteamAPIWarningMessageHook)		144
-nim	isOverlayEnabled	steamworks.html#isOverlayEnabled,ISteamUtils	proc isOverlayEnabled(self: ISteamUtils): bool		145
-nim	bOverlayNeedsPresent	steamworks.html#bOverlayNeedsPresent,ISteamUtils	proc bOverlayNeedsPresent(self: ISteamUtils): bool		146
-nim	checkFileSignature	steamworks.html#checkFileSignature,ISteamUtils,cstring	proc checkFileSignature(self: ISteamUtils; szFileName: cstring): SteamAPICall		147
-nim	showGamepadTextInput	steamworks.html#showGamepadTextInput,ISteamUtils,GamepadTextInputMode,GamepadTextInputLineMode,cstring,uint32,cstring	proc showGamepadTextInput(self: ISteamUtils; eInputMode: GamepadTextInputMode;\n                     eLineInputMode: GamepadTextInputLineMode;\n                     pchDescription: cstring; unCharMax: uint32;\n                     pchExistingText: cstring): bool		148
-nim	getEnteredGamepadTextLength	steamworks.html#getEnteredGamepadTextLength,ISteamUtils	proc getEnteredGamepadTextLength(self: ISteamUtils): uint32		149
-nim	getEnteredGamepadTextInput	steamworks.html#getEnteredGamepadTextInput,ISteamUtils,cstring,uint32	proc getEnteredGamepadTextInput(self: ISteamUtils; pchText: cstring; cchText: uint32): bool		150
-nim	getSteamUILanguage	steamworks.html#getSteamUILanguage,ISteamUtils	proc getSteamUILanguage(self: ISteamUtils): cstring		151
-nim	isSteamRunningInVR	steamworks.html#isSteamRunningInVR,ISteamUtils	proc isSteamRunningInVR(self: ISteamUtils): bool		152
-nim	setOverlayNotificationInset	steamworks.html#setOverlayNotificationInset,ISteamUtils,cint,cint	proc setOverlayNotificationInset(self: ISteamUtils; nHorizontalInset: cint;\n                            nVerticalInset: cint)		153
-nim	isSteamInBigPictureMode	steamworks.html#isSteamInBigPictureMode,ISteamUtils	proc isSteamInBigPictureMode(self: ISteamUtils): bool		154
-nim	startVRDashboard	steamworks.html#startVRDashboard,ISteamUtils	proc startVRDashboard(self: ISteamUtils)		155
-nim	isVRHeadsetStreamingEnabled	steamworks.html#isVRHeadsetStreamingEnabled,ISteamUtils	proc isVRHeadsetStreamingEnabled(self: ISteamUtils): bool		156
-nim	setVRHeadsetStreamingEnabled	steamworks.html#setVRHeadsetStreamingEnabled,ISteamUtils,bool	proc setVRHeadsetStreamingEnabled(self: ISteamUtils; bEnabled: bool)		157
-nim	isSteamChinaLauncher	steamworks.html#isSteamChinaLauncher,ISteamUtils	proc isSteamChinaLauncher(self: ISteamUtils): bool		158
-nim	initFilterText	steamworks.html#initFilterText,ISteamUtils,uint32	proc initFilterText(self: ISteamUtils; unFilterOptions: uint32): bool		159
-nim	filterText	steamworks.html#filterText,ISteamUtils,TextFilteringContext,SteamId,cstring,cstring,uint32	proc filterText(self: ISteamUtils; eContext: TextFilteringContext;\n           sourceSteamID: SteamId; pchInputMessage: cstring;\n           pchOutFilteredText: cstring; nByteSizeOutFilteredText: uint32): cint		160
-nim	getIPv6ConnectivityState	steamworks.html#getIPv6ConnectivityState,ISteamUtils,SteamIPv6ConnectivityProtocol	proc getIPv6ConnectivityState(self: ISteamUtils;\n                         eProtocol: SteamIPv6ConnectivityProtocol): SteamIPv6ConnectivityState		161
-nim	isSteamRunningOnSteamDeck	steamworks.html#isSteamRunningOnSteamDeck,ISteamUtils	proc isSteamRunningOnSteamDeck(self: ISteamUtils): bool		162
-nim	showFloatingGamepadTextInput	steamworks.html#showFloatingGamepadTextInput,ISteamUtils,FloatingGamepadTextInputMode,cint,cint,cint,cint	proc showFloatingGamepadTextInput(self: ISteamUtils;\n                             eKeyboardMode: FloatingGamepadTextInputMode;\n                             nTextFieldXPosition: cint;\n                             nTextFieldYPosition: cint; nTextFieldWidth: cint;\n                             nTextFieldHeight: cint): bool		163
-nim	setGameLauncherMode	steamworks.html#setGameLauncherMode,ISteamUtils,bool	proc setGameLauncherMode(self: ISteamUtils; bLauncherMode: bool)		164
-nim	dismissFloatingGamepadTextInput	steamworks.html#dismissFloatingGamepadTextInput,ISteamUtils	proc dismissFloatingGamepadTextInput(self: ISteamUtils): bool		165
-nim	getAppInstallDir	steamworks.html#getAppInstallDir,ISteamApps,AppId	proc getAppInstallDir(self: ISteamApps; appID: AppId): string		174
-nim	getCurrentBetaName	steamworks.html#getCurrentBetaName,ISteamApps	proc getCurrentBetaName(self: ISteamApps): string		178
+nim	requestCurrentStats	steamworks.html#requestCurrentStats,ISteamUserStats	proc requestCurrentStats(self: ISteamUserStats): bool		120
+nim	storeStats	steamworks.html#storeStats,ISteamUserStats	proc storeStats(self: ISteamUserStats): bool		121
+nim	getStat	steamworks.html#getStat,ISteamUserStats,cstring,ptr.int32	proc getStat(self: ISteamUserStats; name: cstring; data: ptr int32): bool		122
+nim	getStat	steamworks.html#getStat,ISteamUserStats,cstring,ptr.float32	proc getStat(self: ISteamUserStats; name: cstring; data: ptr float32): bool		123
+nim	SetStat	steamworks.html#SetStat,ISteamUserStats,cstring,int32	proc SetStat(self: ISteamUserStats; name: cstring; data: int32): bool		124
+nim	SetStat	steamworks.html#SetStat,ISteamUserStats,cstring,float32	proc SetStat(self: ISteamUserStats; name: cstring; data: float32): bool		125
+nim	getAchievement	steamworks.html#getAchievement,ISteamUserStats,cstring,ptr.bool	proc getAchievement(self: ISteamUserStats; name: cstring; achieved: ptr bool): bool		126
+nim	setAchievement	steamworks.html#setAchievement,ISteamUserStats,cstring	proc setAchievement(self: ISteamUserStats; name: cstring): bool		127
+nim	clearAchievement	steamworks.html#clearAchievement,ISteamUserStats,cstring	proc clearAchievement(self: ISteamUserStats; name: cstring): bool		128
+nim	SteamFriends	steamworks.html#SteamFriends	proc SteamFriends(): ISteamFriends		130
+nim	getPersonaName	steamworks.html#getPersonaName,ISteamFriends	proc getPersonaName(self: ISteamFriends): cstring		131
+nim	getFriendCount	steamworks.html#getFriendCount,ISteamFriends,cint	proc getFriendCount(self: ISteamFriends; iFriendFlags: cint): cint		132
+nim	getFriendByIndex	steamworks.html#getFriendByIndex,ISteamFriends,cint,cint	proc getFriendByIndex(self: ISteamFriends; iFriend: cint; iFriendFlags: cint): SteamId		133
+nim	getFriendPersonaName	steamworks.html#getFriendPersonaName,ISteamFriends,SteamId	proc getFriendPersonaName(self: ISteamFriends; steamIDFriend: SteamId): cstring		134
+nim	replyToFriendMessage	steamworks.html#replyToFriendMessage,ISteamFriends,SteamId,cstring	proc replyToFriendMessage(self: ISteamFriends; steamIDFriend: SteamId;\n                     msgToSend: cstring)		135
+nim	inviteUserToGame	steamworks.html#inviteUserToGame,ISteamFriends,SteamId,cstring	proc inviteUserToGame(self: ISteamFriends; steamIDFriend: SteamId;\n                 connectString: cstring): bool		136
+nim	SteamUtils	steamworks.html#SteamUtils	proc SteamUtils(): ISteamUtils		138
+nim	getSecondsSinceAppActive	steamworks.html#getSecondsSinceAppActive,ISteamUtils	proc getSecondsSinceAppActive(self: ISteamUtils): uint32		139
+nim	getSecondsSinceComputerActive	steamworks.html#getSecondsSinceComputerActive,ISteamUtils	proc getSecondsSinceComputerActive(self: ISteamUtils): uint32		140
+nim	getConnectedUniverse	steamworks.html#getConnectedUniverse,ISteamUtils	proc getConnectedUniverse(self: ISteamUtils): Universe		141
+nim	getServerRealTime	steamworks.html#getServerRealTime,ISteamUtils	proc getServerRealTime(self: ISteamUtils): uint32		142
+nim	getIPCountry	steamworks.html#getIPCountry,ISteamUtils	proc getIPCountry(self: ISteamUtils): cstring		143
+nim	getImageSize	steamworks.html#getImageSize,ISteamUtils,cint,ptr.uint32,ptr.uint32	proc getImageSize(self: ISteamUtils; iImage: cint; pnWidth: ptr uint32;\n             pnHeight: ptr uint32): bool		144
+nim	getImageRGBA	steamworks.html#getImageRGBA,ISteamUtils,cint,ptr.uint8,cint	proc getImageRGBA(self: ISteamUtils; iImage: cint; pubDest: ptr uint8;\n             nDestBufferSize: cint): bool		145
+nim	getCurrentBatteryPower	steamworks.html#getCurrentBatteryPower,ISteamUtils	proc getCurrentBatteryPower(self: ISteamUtils): uint8		146
+nim	getAppID	steamworks.html#getAppID,ISteamUtils	proc getAppID(self: ISteamUtils): uint32		147
+nim	setOverlayNotificationPosition	steamworks.html#setOverlayNotificationPosition,ISteamUtils,NotificationPosition	proc setOverlayNotificationPosition(self: ISteamUtils;\n                               eNotificationPosition: NotificationPosition)		148
+nim	isAPICallCompleted	steamworks.html#isAPICallCompleted,ISteamUtils,SteamAPICall,ptr.bool	proc isAPICallCompleted(self: ISteamUtils; hSteamAPICall: SteamAPICall;\n                   pbFailed: ptr bool): bool		149
+nim	getAPICallFailureReason	steamworks.html#getAPICallFailureReason,ISteamUtils,SteamAPICall	proc getAPICallFailureReason(self: ISteamUtils; hSteamAPICall: SteamAPICall): SteamAPICallFailure		150
+nim	getAPICallResult	steamworks.html#getAPICallResult,ISteamUtils,SteamAPICall,pointer,cint,cint,ptr.bool	proc getAPICallResult(self: ISteamUtils; hSteamAPICall: SteamAPICall;\n                 pCallback: pointer; cubCallback: cint; iCallbackExpected: cint;\n                 pbFailed: ptr bool): bool		151
+nim	getIPCCallCount	steamworks.html#getIPCCallCount,ISteamUtils	proc getIPCCallCount(self: ISteamUtils): uint32		152
+nim	setWarningMessageHook	steamworks.html#setWarningMessageHook,ISteamUtils,SteamAPIWarningMessageHook	proc setWarningMessageHook(self: ISteamUtils; pFunction: SteamAPIWarningMessageHook)		153
+nim	isOverlayEnabled	steamworks.html#isOverlayEnabled,ISteamUtils	proc isOverlayEnabled(self: ISteamUtils): bool		154
+nim	bOverlayNeedsPresent	steamworks.html#bOverlayNeedsPresent,ISteamUtils	proc bOverlayNeedsPresent(self: ISteamUtils): bool		155
+nim	checkFileSignature	steamworks.html#checkFileSignature,ISteamUtils,cstring	proc checkFileSignature(self: ISteamUtils; szFileName: cstring): SteamAPICall		156
+nim	showGamepadTextInput	steamworks.html#showGamepadTextInput,ISteamUtils,GamepadTextInputMode,GamepadTextInputLineMode,cstring,uint32,cstring	proc showGamepadTextInput(self: ISteamUtils; eInputMode: GamepadTextInputMode;\n                     eLineInputMode: GamepadTextInputLineMode;\n                     pchDescription: cstring; unCharMax: uint32;\n                     pchExistingText: cstring): bool		157
+nim	getEnteredGamepadTextLength	steamworks.html#getEnteredGamepadTextLength,ISteamUtils	proc getEnteredGamepadTextLength(self: ISteamUtils): uint32		158
+nim	getEnteredGamepadTextInput	steamworks.html#getEnteredGamepadTextInput,ISteamUtils,cstring,uint32	proc getEnteredGamepadTextInput(self: ISteamUtils; pchText: cstring; cchText: uint32): bool		159
+nim	getSteamUILanguage	steamworks.html#getSteamUILanguage,ISteamUtils	proc getSteamUILanguage(self: ISteamUtils): cstring		160
+nim	isSteamRunningInVR	steamworks.html#isSteamRunningInVR,ISteamUtils	proc isSteamRunningInVR(self: ISteamUtils): bool		161
+nim	setOverlayNotificationInset	steamworks.html#setOverlayNotificationInset,ISteamUtils,cint,cint	proc setOverlayNotificationInset(self: ISteamUtils; nHorizontalInset: cint;\n                            nVerticalInset: cint)		162
+nim	isSteamInBigPictureMode	steamworks.html#isSteamInBigPictureMode,ISteamUtils	proc isSteamInBigPictureMode(self: ISteamUtils): bool		163
+nim	startVRDashboard	steamworks.html#startVRDashboard,ISteamUtils	proc startVRDashboard(self: ISteamUtils)		164
+nim	isVRHeadsetStreamingEnabled	steamworks.html#isVRHeadsetStreamingEnabled,ISteamUtils	proc isVRHeadsetStreamingEnabled(self: ISteamUtils): bool		165
+nim	setVRHeadsetStreamingEnabled	steamworks.html#setVRHeadsetStreamingEnabled,ISteamUtils,bool	proc setVRHeadsetStreamingEnabled(self: ISteamUtils; bEnabled: bool)		166
+nim	isSteamChinaLauncher	steamworks.html#isSteamChinaLauncher,ISteamUtils	proc isSteamChinaLauncher(self: ISteamUtils): bool		167
+nim	initFilterText	steamworks.html#initFilterText,ISteamUtils,uint32	proc initFilterText(self: ISteamUtils; unFilterOptions: uint32): bool		168
+nim	filterText	steamworks.html#filterText,ISteamUtils,TextFilteringContext,SteamId,cstring,cstring,uint32	proc filterText(self: ISteamUtils; eContext: TextFilteringContext;\n           sourceSteamID: SteamId; pchInputMessage: cstring;\n           pchOutFilteredText: cstring; nByteSizeOutFilteredText: uint32): cint		169
+nim	getIPv6ConnectivityState	steamworks.html#getIPv6ConnectivityState,ISteamUtils,SteamIPv6ConnectivityProtocol	proc getIPv6ConnectivityState(self: ISteamUtils;\n                         eProtocol: SteamIPv6ConnectivityProtocol): SteamIPv6ConnectivityState		170
+nim	isSteamRunningOnSteamDeck	steamworks.html#isSteamRunningOnSteamDeck,ISteamUtils	proc isSteamRunningOnSteamDeck(self: ISteamUtils): bool		171
+nim	showFloatingGamepadTextInput	steamworks.html#showFloatingGamepadTextInput,ISteamUtils,FloatingGamepadTextInputMode,cint,cint,cint,cint	proc showFloatingGamepadTextInput(self: ISteamUtils;\n                             eKeyboardMode: FloatingGamepadTextInputMode;\n                             nTextFieldXPosition: cint;\n                             nTextFieldYPosition: cint; nTextFieldWidth: cint;\n                             nTextFieldHeight: cint): bool		172
+nim	setGameLauncherMode	steamworks.html#setGameLauncherMode,ISteamUtils,bool	proc setGameLauncherMode(self: ISteamUtils; bLauncherMode: bool)		173
+nim	dismissFloatingGamepadTextInput	steamworks.html#dismissFloatingGamepadTextInput,ISteamUtils	proc dismissFloatingGamepadTextInput(self: ISteamUtils): bool		174
+nim	getAppInstallDir	steamworks.html#getAppInstallDir,ISteamApps,AppId	proc getAppInstallDir(self: ISteamApps; appID: AppId): string		183
+nim	getCurrentBetaName	steamworks.html#getCurrentBetaName,ISteamApps	proc getCurrentBetaName(self: ISteamApps): string		187
+nimgrp	Setstat	steamworks.html#SetStat-procs-all	proc		124
 nimgrp	getcurrentbetaname	steamworks.html#getCurrentBetaName-procs-all	proc		112
+nimgrp	getstat	steamworks.html#getStat-procs-all	proc		122
