@@ -117,6 +117,15 @@ proc getSteamID*(self: ISteamUser): SteamId {.importc: "SteamAPI_ISteamUser_GetS
 
 proc SteamUserStats*(): ISteamUserStats {.importc: "SteamAPI_SteamUserStats_v012".}
 proc getNumberOfCurrentPlayers*(self: ISteamUserStats): SteamAPICall {.importc: "SteamAPI_ISteamUserStats_GetNumberOfCurrentPlayers".}
+proc requestCurrentStats*(self: ISteamUserStats): bool {.importc: "SteamAPI_ISteamUserStats_RequestCurrentStats".}
+proc storeStats*(self: ISteamUserStats): bool {.importc: "SteamAPI_ISteamUserStats_StoreStats".}
+proc getStat*(self: ISteamUserStats, name: cstring, data: ptr int32): bool {.importc: "SteamAPI_ISteamUserStats_GetStat".}
+proc getStat*(self: ISteamUserStats, name: cstring, data: ptr float32): bool {.importc: "SteamAPI_ISteamUserStats_GetStat".}
+proc SetStat*(self: ISteamUserStats, name: cstring, data: int32): bool {.importc: "SteamAPI_ISteamUserStats_SetStat".}
+proc SetStat*(self: ISteamUserStats, name: cstring, data: float32): bool {.importc: "SteamAPI_ISteamUserStats_SetStat".}
+proc getAchievement*(self: ISteamUserStats, name: cstring, achieved: ptr bool): bool {.importc: "SteamAPI_ISteamUserStats_GetAchievement".}
+proc setAchievement*(self: ISteamUserStats, name: cstring): bool {.importc: "SteamAPI_ISteamUserStats_SetAchievement".}
+proc clearAchievement*(self: ISteamUserStats, name: cstring): bool {.importc: "SteamAPI_ISteamUserStats_ClearAchievement".}
 
 proc SteamFriends*(): ISteamFriends {.importc: "SteamAPI_SteamFriends_v017".}
 proc getPersonaName*(self: ISteamFriends): cstring {.importc: "SteamAPI_ISteamFriends_GetPersonaName".}
